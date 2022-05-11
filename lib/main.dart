@@ -6,6 +6,7 @@ import 'conestants.dart';
 import 'home_page.dart';
 import 'screens/belady/belady_main_screen.dart';
 import 'screens/belady/belady_short_vedio_screen.dart';
+import 'screens/belady/belady_test_screen.dart';
 import 'screens/belady/lesson_belady_screen.dart';
 import 'screens/categories_screen.dart';
 import 'screens/category_meals_screen.dart';
@@ -14,12 +15,15 @@ import 'screens/new_year/new_year_main_screen.dart';
 import 'screens/new_year/new_year_screen.dart';
 import 'screens/lesson_screen.dart';
 import 'screens/meal_detail_screen.dart';
+import 'screens/new_year/new_year_test_screen.dart';
 import 'screens/new_year/new_year_vedio_screen.dart';
 import 'screens/qanatir/lesson_qanatir_screen.dart';
 import 'screens/qanatir/qanatir_main_screen.dart';
+import 'screens/qanatir/qanatir_test_screen.dart';
 import 'screens/qanatir/qanatir_vedio_screen.dart';
 import 'screens/school_library/library_main_screen.dart';
 import 'screens/school_library/library_screen.dart';
+import 'screens/school_library/library_test_screen.dart';
 import 'screens/school_library/library_vedio_screen.dart';
 import 'screens/tabs_screen.dart';
 import 'screens/vedio_screen.dart';
@@ -49,6 +53,11 @@ class MyApp extends StatelessWidget {
         MealDetailScreen.routeName: (context) => MealDetailScreen(),
         VideoScreen.routeName: (context) => VideoScreen(),
 
+        LibraryTestScreen.routeName: (context) => LibraryTestScreen(),
+        NewYearTestScreen.routeName: (context) => NewYearTestScreen(),
+        BeladyTestScreen.routeName: (context) => BeladyTestScreen(),
+        QanatirTestScreen.routeName: (context) => QanatirTestScreen(),
+
         QuizScore.routeName: (context) => QuizScore(),
         QuizImage.routeName: (context) => QuizImage(),
 
@@ -71,9 +80,6 @@ class MyApp extends StatelessWidget {
       },
       title: 'Flutter Demo',
       theme: ThemeData(
-          primarySwatch: KMainColor,
-//          primarySwatch: Colors.green,
-          accentColor: KSecondaryColor,//Colors.white54,
           canvasColor: Color.fromRGBO(255, 254, 229, 1.0),
           textTheme: ThemeData.light().textTheme.copyWith(
                 bodyText1: TextStyle(
@@ -86,7 +92,9 @@ class MyApp extends StatelessWidget {
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
-              )),
+              ),
+          colorScheme: ColorScheme.fromSwatch(primarySwatch: KMainColor)
+              .copyWith(secondary: KSecondaryColor)),
       home: TabsScreen(),
 //      home: CategoriesScreen(),
 //      home: HomePage(),
@@ -95,4 +103,3 @@ class MyApp extends StatelessWidget {
 }
 
 // واصفر فاقع للخلفية احمر لون اساسي للكلام
-

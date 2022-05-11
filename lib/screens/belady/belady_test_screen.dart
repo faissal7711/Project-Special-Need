@@ -4,19 +4,18 @@ import '../../dummy_data.dart';
 import '../../services/theme.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/main_drawer.dart';
-import 'library_screen.dart';
 import '../vedio_screen.dart';
-import 'library_test_screen.dart';
+import 'lesson_belady_screen.dart';
 
-class LibraryMainScreen extends StatelessWidget {
-  static const routeName = '/library_main_screen';
+class BeladyTestScreen extends StatelessWidget {
+  static const routeName = '/belady_test_screen';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: purpleColor,
       drawer: MainDrawer(),
       appBar: AppBar(
-        title: Text(DUMMY_CATEGORIES[2].title,style: StyleTitle,),
+        title: Text(DUMMY_CATEGORIES[1].title,style: StyleTitle,),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.01),
@@ -29,9 +28,9 @@ class LibraryMainScreen extends StatelessWidget {
               color: KButtonColor1,
 //            context: context,
               onPressed: () {
-                Navigator.of(context).pushNamed(LessonLibraryScreen.routeName);
+                Navigator.of(context).pushNamed(LessonBeladyScreen.routeName);
               },
-              text: 'شرح الدرس',
+              text: 'اﻷختبار اﻷول(المطابقة)',
 //            description: '',
             ),
 //            SizedBox(
@@ -45,7 +44,7 @@ class LibraryMainScreen extends StatelessWidget {
                 VideoScreen.url ='https://youtu.be/Ao3gZkIS0Mc';
                 Navigator.of(context).pushNamed(VideoScreen.routeName);
               },
-              text: 'فيديو عن المكتبة المدرسية',
+              text: 'اﻷختبار الثاني(اختر)',
 //            description: '',
             ),
 //            SizedBox(
@@ -59,7 +58,7 @@ class LibraryMainScreen extends StatelessWidget {
                 VideoScreen.url ='https://youtu.be/oaoJRh_-cGQ';
                 Navigator.of(context).pushNamed(VideoScreen.routeName);
               },
-              text: 'أداب المكتبة',
+              text: 'اﻷختبار الثالث(التصنيف)',
 //            description: '',
             ),
 //            SizedBox(
@@ -73,7 +72,7 @@ class LibraryMainScreen extends StatelessWidget {
                 VideoScreen.url ='https://youtu.be/AAv8tbtf0dU';
                 Navigator.of(context).pushNamed(VideoScreen.routeName);
               },
-              text: 'تغليف وتزيين الدفاتر',
+              text: 'اﻷختبار الرابع(رتب الجمل)',
 //            description: '',
             ),
 //            SizedBox(
@@ -87,7 +86,7 @@ class LibraryMainScreen extends StatelessWidget {
                 VideoScreen.url ='https://youtu.be/J9yLzzvtIdY';
                 Navigator.of(context).pushNamed(VideoScreen.routeName);
               },
-              text: 'منظم للمكتب واﻷدوات',
+              text: '(اكمل الحرف الناقص)',
 //            description: '',
             ),
 //            SizedBox(
@@ -98,12 +97,21 @@ class LibraryMainScreen extends StatelessWidget {
               color: KButtonColor1,
 //            context: context,
               onPressed: () {
-                Navigator.of(context).pushNamed(LibraryTestScreen.routeName);
+//                Navigator.of(context).pushNamed(NewYearMainScreen.routeName);
               },
-              text: 'اﻹختبارات',
+              text: 'اﻷختبار السادس(وصل)',
 //            description: '',
             ),
-
+            CustomButton(
+              heroTag: 'library-3',
+              color: KButtonColor1,
+//            context: context,
+              onPressed: () {
+//                Navigator.of(context).pushNamed(NewYearMainScreen.routeName);
+              },
+              text: 'اﻷختبار السابع(كون جملة)',
+//            description: '',
+            ),
           ],
         ),
       ),

@@ -5,6 +5,7 @@ import '../screens/belady/belady_main_screen.dart';
 import '../screens/new_year/new_year_main_screen.dart';
 import '../screens/qanatir/qanatir_main_screen.dart';
 import '../screens/school_library/library_main_screen.dart';
+import '../services/theme.dart';
 
 class MainDrawer extends StatelessWidget {
   Widget buildListTile(BuildContext context,String text, Function function) {
@@ -14,6 +15,7 @@ class MainDrawer extends StatelessWidget {
         height: 70,
 //      height: MediaQuery.of(context).size.height * 0.1,
         child: Card(
+          color: purpleColor,
           shadowColor: Colors.tealAccent,
           child: ListTile(
             onTap: function,

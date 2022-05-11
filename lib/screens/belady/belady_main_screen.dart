@@ -6,6 +6,7 @@ import '../../widgets/custom_button.dart';
 import '../../widgets/custom_container.dart';
 import '../../widgets/main_drawer.dart';
 import '../category_meals_screen.dart';
+import 'belady_test_screen.dart';
 import 'lesson_belady_screen.dart';
 import '../vedio_screen.dart';
 
@@ -88,7 +89,7 @@ class BeladyMainScreen extends StatelessWidget {
             color: KButtonColor1,
 //            context: context,
             onPressed: () {
-//                Navigator.of(context).pushNamed(NewYearMainScreen.routeName);
+                Navigator.of(context).pushNamed(BeladyTestScreen.routeName);
             },
             text: 'اﻹختبارات',
 //            description: '',

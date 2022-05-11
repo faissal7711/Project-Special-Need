@@ -7,6 +7,7 @@ import '../../widgets/custom_button.dart';
 import '../../widgets/main_drawer.dart';
 import 'new_year_screen.dart';
 import '../vedio_screen.dart';
+import 'new_year_test_screen.dart';
 
 class NewYearMainScreen extends StatelessWidget {
   static const routeName = '/subject_main_screen';
@@ -58,7 +59,7 @@ class NewYearMainScreen extends StatelessWidget {
 //            context: context,
               onPressed: () {
 //                Get.to(QuizImage());
-                Navigator.of(context).pushNamed(QuizImage.routeName);
+                Navigator.of(context).pushNamed(NewYearTestScreen.routeName);
               },
               text: 'اﻹختبارات',
 //            description: '',

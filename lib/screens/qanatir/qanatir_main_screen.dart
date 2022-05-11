@@ -6,6 +6,7 @@ import '../../widgets/custom_button.dart';
 import '../../widgets/main_drawer.dart';
 import '../vedio_screen.dart';
 import 'lesson_qanatir_screen.dart';
+import 'qanatir_test_screen.dart';
 import 'qanatir_vedio_screen.dart';
 
 class QanatirMainScreen extends StatelessWidget {
@@ -56,7 +57,7 @@ class QanatirMainScreen extends StatelessWidget {
               color: KButtonColor1,
 //            context: context,
               onPressed: () {
-//                Navigator.of(context).pushNamed(NewYearMainScreen.routeName);
+                Navigator.of(context).pushNamed(QanatirTestScreen.routeName);
               },
               text: 'اﻹختبارات',
 //            description: '',

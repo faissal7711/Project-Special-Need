@@ -41,7 +41,7 @@ class LessonNewYearScreen extends StatelessWidget {
           Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            color: Theme.of(context).accentColor,
+//            color: Theme.of(context).accentColor,
           ),
           CarouselSlider(
             items: [
