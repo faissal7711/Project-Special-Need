@@ -16,13 +16,14 @@ class NewYearMainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: purpleColor,
-      drawer: MainDrawer(),
+//      drawer: MainDrawer(),
       appBar: AppBar(
         title: Text(DUMMY_CATEGORIES[0].title,style: StyleTitle),
       ),
       body: Padding(
         padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.1),
         child: ListView(
+          physics: BouncingScrollPhysics(),
           padding: EdgeInsets.symmetric(
               horizontal: MediaQuery.of(context).size.width * 0.02),
           children: [
@@ -61,7 +62,7 @@ class NewYearMainScreen extends StatelessWidget {
 //                Get.to(QuizImage());
                 Navigator.of(context).pushNamed(NewYearTestScreen.routeName);
               },
-              text: 'اﻹختبارات',
+              text: 'انشطة علي الدرس',
 //            description: '',
             ),
           ],

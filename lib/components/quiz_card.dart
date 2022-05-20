@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../services/theme.dart';
+import '../../../services/theme.dart';
 import 'optional.dart';
 import 'quiz.dart';
 import 'quiz_controller.dart';
@@ -17,14 +17,14 @@ class QuizCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    QuizControllerImage _controller = Get.put(QuizControllerImage());
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 0),
-      padding: EdgeInsets.symmetric(horizontal: 5, vertical: 0),
-      decoration: BoxDecoration(
-        //color: Colors.transparent,
-      ),
-      child: SingleChildScrollView(
+    QuizControllerImageNew _controller = Get.put(QuizControllerImageNew());
+    return SingleChildScrollView(
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 0),
+        padding: EdgeInsets.symmetric(horizontal: 5, vertical: 0),
+        decoration: BoxDecoration(
+          //color: Colors.transparent,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -33,10 +33,10 @@ class QuizCard extends StatelessWidget {
               height: 300,
               width: 500,
             ),*/
-            const SizedBox(height: 30,),
+            const SizedBox(height: 20,),
             Text(
               quiz.ask,
-              style: whiteTextStyle.copyWith(fontSize: 19, fontWeight: bold),
+              style: whiteTextStyle.copyWith(fontSize: 22, fontWeight: FontWeight.w900),
             ),
             const SizedBox(height: 100,),
             GridView.count(
@@ -46,6 +46,7 @@ class QuizCard extends StatelessWidget {
               mainAxisSpacing: 10,
               children: [
                 ...List.generate(quiz.optional.length, (index) {
+                  //design for each card in screen
                   return Container(
                     height: 5000,
                     width: 5000,

@@ -3,11 +3,9 @@ import '../../conestants.dart';
 import '../../dummy_data.dart';
 import '../../services/theme.dart';
 import '../../widgets/custom_button.dart';
-import '../../widgets/main_drawer.dart';
 import '../vedio_screen.dart';
 import 'lesson_qanatir_screen.dart';
 import 'qanatir_test_screen.dart';
-import 'qanatir_vedio_screen.dart';
 
 class QanatirMainScreen extends StatelessWidget {
   static const routeName = '/qanatir_main_screen';
@@ -15,13 +13,14 @@ class QanatirMainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: purpleColor,
-      drawer: MainDrawer(),
+//      drawer: MainDrawer(),
       appBar: AppBar(
         title: Text(DUMMY_CATEGORIES[3].title,style: StyleTitle),
       ),
       body: Padding(
         padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.1),
         child: ListView(
+          physics: BouncingScrollPhysics(),
           padding: EdgeInsets.symmetric(
               horizontal: MediaQuery.of(context).size.width * 0.02),
           children: [
@@ -59,7 +58,7 @@ class QanatirMainScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pushNamed(QanatirTestScreen.routeName);
               },
-              text: 'اﻹختبارات',
+              text: 'انشطة على الدرس',
 //            description: '',
             ),
 

@@ -3,7 +3,6 @@ import '../../conestants.dart';
 import '../../dummy_data.dart';
 import '../../services/theme.dart';
 import '../../widgets/custom_button.dart';
-import '../../widgets/main_drawer.dart';
 import 'library_screen.dart';
 import '../vedio_screen.dart';
 import 'library_test_screen.dart';
@@ -14,13 +13,14 @@ class LibraryMainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: purpleColor,
-      drawer: MainDrawer(),
+//      drawer: MainDrawer(),
       appBar: AppBar(
         title: Text(DUMMY_CATEGORIES[2].title,style: StyleTitle,),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.01),
         child: ListView(
+          physics: BouncingScrollPhysics(),
           padding: EdgeInsets.symmetric(
               horizontal: MediaQuery.of(context).size.width * 0.001),
           children: [
@@ -100,7 +100,7 @@ class LibraryMainScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pushNamed(LibraryTestScreen.routeName);
               },
-              text: 'اﻹختبارات',
+              text: 'انشطة على الدرس',
 //            description: '',
             ),
 

@@ -11,7 +11,7 @@ class LessonNewYearScreen extends StatelessWidget {
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       margin: EdgeInsets.all(6.0),
-      child: Image.asset(imagePath, fit: BoxFit.fill),
+      child: Image.asset(imagePath, /*fit: BoxFit.fill*/),
 //      decoration: BoxDecoration(
 //        borderRadius: BorderRadius.circular(8.0),
 //        image: DecorationImage(

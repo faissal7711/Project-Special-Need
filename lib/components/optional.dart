@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'dart:ui';
 
+import 'quiz_controller.dart';
+
 class Optional extends StatelessWidget {
   const Optional({
     Key key,
@@ -18,8 +20,8 @@ class Optional extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<QuizControllerImage>(
-      init: QuizControllerImage(),
+    return GetBuilder<QuizControllerImageNew>(
+      init: QuizControllerImageNew(),
       builder: (qnController) {
         Color getRightColor() {
           if (qnController.answered) {

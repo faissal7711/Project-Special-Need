@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 import '../../components/quiz.dart';
 import '../../components/quiz_controller.dart';
 import '../../components/quiz_page.dart';
-import '../../conestants.dart';
-import '../../dummy_data.dart';
 import '../../services/theme.dart';
 import '../../widgets/custom_button.dart';
+import '../../widgets/main_drawer.dart';
 import '../../widgets/web_view.dart';
 
-class LibraryTestScreen extends StatelessWidget {
-  static const routeName = '/library_test_screen';
+class RevisionTestScreen extends StatelessWidget {
+  static const routeName = '/revision_test_screen';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: purpleColor,
-//      drawer: MainDrawer(),
+      drawer: MainDrawer(),
       appBar: AppBar(
-        title: Text(DUMMY_CATEGORIES[2].title,style: StyleTitle,),
+        title: Text('اﻷختبار اﻷولي'),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(
@@ -31,7 +31,7 @@ class LibraryTestScreen extends StatelessWidget {
               onPressed: () {
                 playMusic(pathAudio: 'assets/audio/drag.ogg');
                 WebViewLoad.title='النشاط اﻷول(المطابقة)';
-                WebViewLoad.initialUrl ='30976729';
+                WebViewLoad.initialUrl ='32566/303/801';
                 Navigator.of(context).pushNamed(WebViewLoad.routeName);
               },
               text: 'النشاط اﻷول(المطابقة)',
@@ -40,7 +40,56 @@ class LibraryTestScreen extends StatelessWidget {
               heroTag: 'library_1',
               onPressed: () {
                 playMusic(pathAudio: 'assets/audio/choose.ogg');
-                QuizControllerImageNew.quiz_exam = quiz_lib_chose
+                QuizControllerImageNew.quiz_exam = quiz_revision
+                    .map(
+                      (quiz) => Quiz(
+//                      audio: quiz['audio'],
+                      id: quiz['id'],
+                      quiz: quiz['quiz'],
+                      ask: quiz['ask'],
+                      optional: quiz['optional'],
+                      answer: quiz['answer']),
+                )
+                    .toList();
+                Navigator.of(context).pushNamed(QuizImageNew.routeName);
+              },
+              text: 'النشاط الثاني(اختر)',
+            ),
+//            CustomButton(
+//              heroTag: 'library_1',
+//              onPressed: () {
+//                playMusic(pathAudio: 'assets/audio/choose.ogg');
+//                WebViewLoad.title='النشاط الثاني(اختر)';
+//                WebViewLoad.initialUrl ='32570945';
+//                Navigator.of(context).pushNamed(WebViewLoad.routeName);
+//              },
+//              text: 'النشاط الثاني(اختر)',
+//            ),
+            CustomButton(
+              heroTag: 'library_2',
+              onPressed: () {
+                playMusic(pathAudio: 'assets/audio/groups.ogg');
+                WebViewLoad.title='وصل الصوره بأول حرف لها';
+                WebViewLoad.initialUrl ='32565868';
+                Navigator.of(context).pushNamed(WebViewLoad.routeName);
+              },
+              text: 'وصل الصوره بأول حرف لها',
+            ),
+            CustomButton(
+              heroTag: 'library_3',
+              onPressed: () {
+                playMusic(pathAudio: 'assets/audio/world_order.ogg');
+                WebViewLoad.title='النشاط الرابع(سحب وافلات)';
+                WebViewLoad.initialUrl ='32565372';
+                Navigator.of(context).pushNamed(WebViewLoad.routeName);
+              },
+              text: 'النشاط الرابع(رتب الحروف)',
+            ),
+            CustomButton(
+              heroTag: 'library_4',
+              onPressed: () {
+                playMusic(pathAudio: 'assets/audio/missing_char.ogg');
+                QuizControllerImageNew.quiz_exam = quiz_revision_missing_char
                     .map(
                       (quiz) => Quiz(
                       audio: quiz['audio'],
@@ -53,97 +102,38 @@ class LibraryTestScreen extends StatelessWidget {
                     .toList();
                 Navigator.of(context).pushNamed(QuizImageNew.routeName);
               },
-              text: 'النشاط الثاني(اختر)',
-            ),
-            CustomButton(
-              heroTag: 'library_2',
-              onPressed: () {
-                playMusic(pathAudio: 'assets/audio/groups.ogg');
-                WebViewLoad.title='النشاط الثالث(التصنيف1)';
-                WebViewLoad.initialUrl ='32563433';
-                Navigator.of(context).pushNamed(WebViewLoad.routeName);
-              },
-              text: 'النشاط الثالث(التصنيف 1)',
-            ),
-            CustomButton(
-              heroTag: 'library_22',
-              onPressed: () {
-                playMusic(pathAudio: 'assets/audio/groups.ogg');
-                WebViewLoad.title='النشاط الثالث(التصنيف)';
-                WebViewLoad.initialUrl ='32564747';
-                Navigator.of(context).pushNamed(WebViewLoad.routeName);
-              },
-              text: 'النشاط الثالث(التصنيف 2)',
-            ),
-            CustomButton(
-              heroTag: 'library_23',
-              onPressed: () {
-                playMusic(pathAudio: 'assets/audio/groups.ogg');
-                WebViewLoad.title='النشاط الثالث(التصنيف)';
-                WebViewLoad.initialUrl ='32570569';
-                Navigator.of(context).pushNamed(WebViewLoad.routeName);
-              },
-              text: 'النشاط الثالث(التصنيف 3)',
-            ),
-            CustomButton(
-              heroTag: 'library_3',
-              onPressed: () {
-                playMusic(pathAudio: 'assets/audio/world_order.ogg');
-                WebViewLoad.title='النشاط الرابع(رتب الجمل)';
-                WebViewLoad.initialUrl ='32562322';
-                Navigator.of(context).pushNamed(WebViewLoad.routeName);
-              },
-              text: 'النشاط الرابع(رتب الجمل)',
-            ),
-            CustomButton(
-              heroTag: 'library_4',
-              onPressed: () {
-                QuizControllerImageNew.quiz_exam = quiz_lib_missing_char
-                    .map(
-                      (quiz) => Quiz(
-//                      audio: quiz['audio'],
-                      id: quiz['id'],
-                      quiz: quiz['quiz'],
-                      ask: quiz['ask'],
-                      optional: quiz['optional'],
-                      answer: quiz['answer']),
-                )
-                    .toList();
-                playMusic(pathAudio: 'assets/audio/missing_char.ogg');
-                Navigator.of(context).pushNamed(QuizImageNew.routeName);
-              },
               text: '(اكمل الحرف الناقص)',
             ),
+//            CustomButton(
+//              heroTag: 'library_4',
+//              onPressed: () {
+//                playMusic(pathAudio: 'assets/audio/missing_char.ogg');
+//                WebViewLoad.title='(اكمل الحرف الناقص)';
+//                WebViewLoad.initialUrl ='32594877';
+//                Navigator.of(context).pushNamed(WebViewLoad.routeName);
+//              },
+//              text: '(اكمل الحرف الناقص)',
+//            ),
             CustomButton(
-              heroTag: 'library-3',
+              heroTag: 'library-303',
               onPressed: () {
-                playMusic(pathAudio: 'assets/audio/word_formation.ogg');
-                WebViewLoad.title='النشاط السادس(كون جملة)';
-                WebViewLoad.initialUrl ='32568478';
+                playMusic(pathAudio: 'assets/audio/connect_words.ogg');
+                WebViewLoad.title='النشاط السادس(رتب الكلمات)';
+                WebViewLoad.initialUrl ='32565182';
                 Navigator.of(context).pushNamed(WebViewLoad.routeName);
               },
-              text: 'النشاط السادس(كون جملة)',
+              text: 'النشاط السادس(رتب الكلمات)',
             ),
             CustomButton(
               heroTag: 'library-33',
               onPressed: () {
                 playMusic(pathAudio: 'assets/audio/connect_words.ogg');
                 WebViewLoad.title='النشاط السابع(وصل)';
-                WebViewLoad.initialUrl ='32568154';
+                WebViewLoad.initialUrl ='32566748';
                 Navigator.of(context).pushNamed(WebViewLoad.routeName);
               },
               text: 'النشاط السابع(وصل)',
             ),
-//            CustomButton(
-//              heroTag: 'library-303',
-//////              onPressed: () {
-//                playMusic(pathAudio: 'assets/audio/connect_words.ogg');
-//                WebViewLoad.title='النشاط الثامن(وصل)';
-//                WebViewLoad.initialUrl ='32566141';
-//                Navigator.of(context).pushNamed(WebViewLoad.routeName);
-//              },
-//              text: 'النشاط الثامن(وصل)',
-////            ),
           ],
         ),
       ),

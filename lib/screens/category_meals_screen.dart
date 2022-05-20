@@ -8,6 +8,7 @@ import 'vedio_screen.dart';
 
 class CategoryMealsScreen extends StatefulWidget {
   static const routeName = 'category_meals';
+
   @override
   _CategoryMealsScreenState createState() => _CategoryMealsScreenState();
 }
@@ -24,8 +25,7 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
 
   @override
   void didChangeDependencies() {
-    final routArg =
-    ModalRoute.of(context).settings.arguments as String;
+    final routArg = ModalRoute.of(context).settings.arguments as String;
 //    final categoryId = routArg['id'];
 //    categoryTitle = routArg['title'];
     categoryMeals = DUMMY_MEALS.where((meal) {
@@ -36,28 +36,26 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: purpleColor,
       appBar: AppBar(
         title: Text('المهن'),
       ),
       body: ListView.builder(
+        physics: BouncingScrollPhysics(),
         padding: EdgeInsets.symmetric(horizontal: 10.0),
         itemBuilder: (ctx, index) {
           return InkWell(
             onTap: () {
+              print('assets/audio/${index + 1}.ogg');
+              playMusic(pathAudio: 'assets/audio/${index + 1}.ogg');
               VideoScreen.url = categoryMeals[index].id;
               Navigator.of(context).pushNamed(VideoScreen.routeName);
             },
             child: MealItem(
               id: categoryMeals[index].id,
-              imageURL: 'assets/images/belady_job_${index+1}.jpg',
+              imageURL: 'assets/images/belady_job_${index + 1}.jpg',
               title: categoryMeals[index].title,
-              duration: categoryMeals[index].duration,
-              complexity: categoryMeals[index].complexity,
-              affordability: categoryMeals[index].affordability,
-              removeItem: removeMeal,
             ),
           );
         },

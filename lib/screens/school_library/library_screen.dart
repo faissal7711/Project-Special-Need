@@ -30,6 +30,7 @@ class LessonLibraryScreen extends StatelessWidget {
         title: Text("شرح الدرس"),
       ),
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Column(
           children: [
             // Background image of SideMenu (Drawer)

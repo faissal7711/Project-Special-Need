@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import '../../components/quiz.dart';
+import '../../components/quiz_controller.dart';
+import '../../components/quiz_page.dart';
 import '../../conestants.dart';
 import '../../dummy_data.dart';
 import '../../services/theme.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/main_drawer.dart';
-import '../vedio_screen.dart';
-import 'lesson_belady_screen.dart';
+import '../../widgets/web_view.dart';
+import 'belady_sanaf_test_screen.dart';
+import 'belady_wassal_test_screen.dart';
 
 class BeladyTestScreen extends StatelessWidget {
   static const routeName = '/belady_test_screen';
@@ -13,104 +17,131 @@ class BeladyTestScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: purpleColor,
-      drawer: MainDrawer(),
+//      drawer: MainDrawer(),
       appBar: AppBar(
         title: Text(DUMMY_CATEGORIES[1].title,style: StyleTitle,),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.01),
+        padding: EdgeInsets.symmetric(
+            vertical: MediaQuery.of(context).size.height * 0.01),
         child: ListView(
+          physics: BouncingScrollPhysics(),
           padding: EdgeInsets.symmetric(
               horizontal: MediaQuery.of(context).size.width * 0.001),
           children: [
             CustomButton(
-              heroTag: 'library1',
-              color: KButtonColor1,
-//            context: context,
+              heroTag: 'belady1',
               onPressed: () {
-                Navigator.of(context).pushNamed(LessonBeladyScreen.routeName);
+                playMusic(pathAudio: 'assets/audio/choose.ogg');
+                QuizControllerImageNew.quiz_exam = quiz_belady_exam1
+                    .map(
+                      (quiz) => Quiz(
+                      audio: quiz['audio'],
+                      id: quiz['id'],
+                      quiz: quiz['quiz'],
+                      ask: quiz['ask'],
+                      optional: quiz['optional'],
+                      answer: quiz['answer']),
+                )
+                    .toList();
+                Navigator.of(context).pushNamed(QuizImageNew.routeName);
               },
-              text: 'اﻷختبار اﻷول(المطابقة)',
-//            description: '',
+              text: 'النشاط اﻷول(المطابقة)',
             ),
-//            SizedBox(
-//              height: 10.0,
-//            ),
             CustomButton(
-              heroTag: 'library_1',
-              color: KButtonColor4,
-//            context: context,
+              heroTag: 'belady2',
               onPressed: () {
-                VideoScreen.url ='https://youtu.be/Ao3gZkIS0Mc';
-                Navigator.of(context).pushNamed(VideoScreen.routeName);
+                QuizControllerImageNew.quiz_exam = quiz_belady_chose
+                    .map(
+                      (quiz) => Quiz(
+                      audio: quiz['audio'],
+                      id: quiz['id'],
+                      quiz: quiz['quiz'],
+                      ask: quiz['ask'],
+                      optional: quiz['optional'],
+                      answer: quiz['answer']),
+                )
+                    .toList();
+                playMusic(pathAudio: 'assets/audio/choose.ogg');
+                Navigator.of(context).pushNamed(QuizImageNew.routeName);
               },
-              text: 'اﻷختبار الثاني(اختر)',
-//            description: '',
+              text: 'النشاط الثاني(اختر)',
             ),
-//            SizedBox(
-//              height: 10.0,
-//            ),
             CustomButton(
-              heroTag: 'library_2',
-              color: KButtonColor4,
-//            context: context,
+              heroTag: 'belady3',
               onPressed: () {
-                VideoScreen.url ='https://youtu.be/oaoJRh_-cGQ';
-                Navigator.of(context).pushNamed(VideoScreen.routeName);
+//                playMusic(pathAudio: 'assets/audio/groups.ogg');
+                Navigator.of(context).pushNamed(BeladySanafTestScreen.routeName);
               },
-              text: 'اﻷختبار الثالث(التصنيف)',
-//            description: '',
+              text: 'النشاط الثالث(التصنيف)',
             ),
-//            SizedBox(
-//              height: 10.0,
-//            ),
             CustomButton(
-              heroTag: 'library_3',
-              color: KButtonColor4,
-//            context: context,
+              heroTag: 'belady4',
               onPressed: () {
-                VideoScreen.url ='https://youtu.be/AAv8tbtf0dU';
-                Navigator.of(context).pushNamed(VideoScreen.routeName);
+                playMusic(pathAudio: 'assets/audio/word_formation.ogg');
+                WebViewLoad.title='النشاط الرابع(رتب الحروف)';
+                WebViewLoad.initialUrl ='32596864';
+                Navigator.of(context).pushNamed(WebViewLoad.routeName);
               },
-              text: 'اﻷختبار الرابع(رتب الجمل)',
-//            description: '',
+              text: 'النشاط الرابع(رتب الحروف)',
             ),
-//            SizedBox(
-//              height: 10.0,
-//            ),
             CustomButton(
-              heroTag: 'library_4',
-              color: KButtonColor4,
-//            context: context,
+              heroTag: 'belady5',
               onPressed: () {
-                VideoScreen.url ='https://youtu.be/J9yLzzvtIdY';
-                Navigator.of(context).pushNamed(VideoScreen.routeName);
+                playMusic(pathAudio: 'assets/audio/missing_char.ogg');
+                QuizControllerImageNew.quiz_exam = quiz_belady_missing_char
+                    .map(
+                      (quiz) => Quiz(
+                      audio: quiz['audio'],
+                      id: quiz['id'],
+                      quiz: quiz['quiz'],
+                      ask: quiz['ask'],
+                      optional: quiz['optional'],
+                      answer: quiz['answer']),
+                )
+                    .toList();
+                Navigator.of(context).pushNamed(QuizImageNew.routeName);
+//                https://wordwall.net/resource/32574852
               },
               text: '(اكمل الحرف الناقص)',
-//            description: '',
             ),
-//            SizedBox(
-//              height: 10.0,
+//            CustomButton(
+//              heroTag: 'belady6',
+//              onPressed: () {
+//                QuizControllerImageNew.quiz_exam = quiz_q_a
+//                    .map(
+//                      (quiz) => Quiz(
+//                      audio: quiz['audio'],
+//                      id: quiz['id'],
+//                      quiz: quiz['quiz'],
+//                      ask: quiz['ask'],
+//                      optional: quiz['optional'],
+//                      answer: quiz['answer']),
+//                )
+//                    .toList();
+////                playMusic(pathAudio: 'assets/audio/connect_words.ogg');
+//                playMusic(pathAudio: 'assets/audio/choose.ogg');
+//                Navigator.of(context).pushNamed(QuizImageNew.routeName);
+//              },
+//              text: 'النشاط السادس(سوال وجواب)',
 //            ),
             CustomButton(
-              heroTag: 'library3',
-              color: KButtonColor1,
-//            context: context,
+              heroTag: 'belady7',
               onPressed: () {
-//                Navigator.of(context).pushNamed(NewYearMainScreen.routeName);
+                playMusic(pathAudio: 'assets/audio/world_order.ogg');
+                WebViewLoad.title='النشاط السابع(كون جملة)';
+                WebViewLoad.initialUrl ='32565124';
+                Navigator.of(context).pushNamed(WebViewLoad.routeName);
               },
-              text: 'اﻷختبار السادس(وصل)',
-//            description: '',
+              text: 'النشاط السادس(كون جملة)',
             ),
             CustomButton(
-              heroTag: 'library-3',
-              color: KButtonColor1,
-//            context: context,
+              heroTag: 'belady8',
               onPressed: () {
-//                Navigator.of(context).pushNamed(NewYearMainScreen.routeName);
+//                playMusic(pathAudio: 'assets/audio/connect_words.ogg');
+                Navigator.of(context).pushNamed(BeladyWassalTestScreen.routeName);
               },
-              text: 'اﻷختبار السابع(كون جملة)',
-//            description: '',
+              text: 'النشاط السابع(وصل)',
             ),
           ],
         ),
@@ -118,3 +149,6 @@ class BeladyTestScreen extends StatelessWidget {
     );
   }
 }
+
+
+//   32565124

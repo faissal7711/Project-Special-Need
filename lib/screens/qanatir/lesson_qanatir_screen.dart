@@ -30,6 +30,7 @@ class LessonQanatirScreen extends StatelessWidget {
         title: Text("رحله الى القناطر الخيرية"),
       ),
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Column(
           children: [
             // Background image of SideMenu (Drawer)

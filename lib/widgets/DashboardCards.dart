@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../conestants.dart';
+import '../services/theme.dart';
+
 class DashboardCard extends StatelessWidget {
   final String name;
 
@@ -13,11 +16,12 @@ class DashboardCard extends StatelessWidget {
     final double height = MediaQuery.of(context).size.height;
     return Container(
       padding: EdgeInsets.all(10),
-      height: height * 0.17,
-      width: width * 0.30,
+      height: 140,
+      width: 120,
       decoration: BoxDecoration(
+        border: Border.all(color: orangeColor),
         borderRadius: BorderRadius.circular(20),
-        color: Colors.white,
+        color: purpleColor,
         boxShadow: [
           BoxShadow(
             color: Colors.black38,
@@ -26,25 +30,24 @@ class DashboardCard extends StatelessWidget {
           ),
         ],
       ),
-      child: Container(
-          child: Column(
-            children: [
-              Image.asset(
-                "assets/$imgpath",
-                width: 60,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 8.0),
-                child: Text(
-                  "$name",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15,
-                  ),
-                ),
-              ),
-            ],
+      child: Column(
+        children: [
+          Image.asset(
+            "assets/$imgpath",
+            width: 65,
           ),
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0),
+            child: Text(
+              "$name",
+              style: TextStyle(
+                color: KTextColor,
+                fontWeight: FontWeight.bold,
+                fontSize: 25,
+              ),
+            ),
+          ),
+        ],
       ),
       
     );

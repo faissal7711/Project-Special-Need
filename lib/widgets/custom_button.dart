@@ -11,7 +11,7 @@ class CustomButton extends StatelessWidget {
     @required this.onPressed,
     @required this.text,
     @required this.heroTag,
-    @required this.color,
+    this.color,
      this.width=140,
   }) : super(key: key);
   final Function() onPressed;
@@ -29,7 +29,7 @@ class CustomButton extends StatelessWidget {
         width: width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(60.0),
-          border: Border.all(color: orangeColor)
+          border: Border.all(color: orangeColor),
         ),
         child: FloatingActionButton.extended(
           heroTag: heroTag,
@@ -41,7 +41,7 @@ class CustomButton extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .headline4
-                .copyWith(color: orangeColor,fontWeight: FontWeight.bold),
+                .copyWith(color: KTextColor,fontWeight: FontWeight.bold),
           ),
         ),
       ),

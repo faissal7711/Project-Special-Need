@@ -3,10 +3,10 @@ import '../../conestants.dart';
 import '../../dummy_data.dart';
 import '../../services/theme.dart';
 import '../../widgets/custom_button.dart';
-import '../../widgets/custom_container.dart';
 import '../../widgets/main_drawer.dart';
 import '../category_meals_screen.dart';
 import 'belady_test_screen.dart';
+import 'lesson_belady_job_screen.dart';
 import 'lesson_belady_screen.dart';
 import '../vedio_screen.dart';
 
@@ -15,9 +15,10 @@ class BeladyMainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+//    playMusic(pathAudio: "assets/audio/test.mp3");
     return Scaffold(
       backgroundColor: purpleColor,
-      drawer: MainDrawer(),
+//      drawer: MainDrawer(),
       appBar: AppBar(
         title: Text(
           DUMMY_CATEGORIES[1].title,
@@ -25,6 +26,7 @@ class BeladyMainScreen extends StatelessWidget {
         ),
       ),
       body: ListView(
+        physics: BouncingScrollPhysics(),
         padding: EdgeInsets.symmetric(
           horizontal: MediaQuery.of(context).size.width * 0.02,
           vertical: MediaQuery.of(context).size.height * 0.02,
@@ -33,66 +35,55 @@ class BeladyMainScreen extends StatelessWidget {
           CustomButton(
             heroTag: 'belady1',
             color: KButtonColor1,
-//            context: context,
             onPressed: () {
-              Navigator.of(context).pushNamed(LessonBeladyScreen.routeName);
+              Navigator.of(context).pushNamed(LessonBeladyJobScreen.routeName);
             },
-            text: 'شرح الدرس',
-//            description: '',
+            text: 'شرح درس المهن',
           ),
-//            SizedBox(
-//              height: 10.0,
-//            ),
           CustomButton(
             heroTag: 'belady_1',
             color: KButtonColor4,
-//            context: context,
             onPressed: () {
               VideoScreen.url = 'https://youtu.be/XJ__hLoVsew';
               Navigator.of(context).pushNamed(VideoScreen.routeName);
             },
-            text: 'فيديو توضيح',
-//            description: '',
+            text: 'فيديو توضيحي للمهن',
           ),
-//            SizedBox(
-//              height: 10.0,
-//            ),
           CustomButton(
             heroTag: 'belady_job',
             color: KButtonColor4,
-//            context: context,
             onPressed: () {
 //                VideoScreen.url ='';
               Navigator.of(context)
                   .pushNamed(CategoryMealsScreen.routeName, arguments: 'job');
             },
             text: 'المهن',
-//            description: '',
+          ),
+          CustomButton(
+            heroTag: 'belady_t1',
+            color: KButtonColor1,
+            onPressed: () {
+              Navigator.of(context).pushNamed(LessonBeladyScreen.routeName);
+            },
+            text: 'شرح درس التضاريس',
           ),
           CustomButton(
             heroTag: 'belady_10',
             color: KButtonColor4,
-//            context: context,
             onPressed: () {
               VideoScreen.url = 'https://youtu.be/h9V_saw7I0U';
 //              VideoScreen.title='التضاريس';
               Navigator.of(context).pushNamed(VideoScreen.routeName);
             },
-            text: 'التضاريس',
-//            description: '',
+            text: 'فيديو توضيحي التضاريس',
           ),
-//            SizedBox(
-//              height: 10.0,
-//            ),
           CustomButton(
-            heroTag: 'belady3',
+            heroTag: 'belady3-2',
             color: KButtonColor1,
-//            context: context,
             onPressed: () {
-                Navigator.of(context).pushNamed(BeladyTestScreen.routeName);
+              Navigator.of(context).pushNamed(BeladyTestScreen.routeName);
             },
-            text: 'اﻹختبارات',
-//            description: '',
+            text: 'انشطة عامه على الوحده',
           ),
         ],
       ),

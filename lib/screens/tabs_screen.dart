@@ -3,9 +3,12 @@ import 'package:meal_app/widgets/main_drawer.dart';
 import '../conestants.dart';
 import '../services/theme.dart';
 import 'categories_screen.dart';
-import 'favorites.dart';
+import 'revision/revision.dart';
 
 class TabsScreen extends StatefulWidget {
+  static const routeName = '/tabs_screen';
+  static int routeIndex;
+
   @override
   _TabsScreenState createState() => _TabsScreenState();
 }
@@ -18,17 +21,17 @@ class _TabsScreenState extends State<TabsScreen> {
       'title': 'المنهج',
     },
     {
-      'page': Favorites(),
-      'title': 'المراجعة',
+      'page': RevisionScreen(),
+      'title': 'المراجعه',
     },
   ];
   int _selectPageIndex = 0;
 
-  void _selectPage(int value) {
-    setState(() {
-      _selectPageIndex = value;
-    });
-  }
+//  void _selectPage(int value) {
+//    setState(() {
+//      _selectPageIndex = value;
+//    });
+//  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +40,7 @@ class _TabsScreenState extends State<TabsScreen> {
       drawer: MainDrawer(),
       appBar: AppBar(
         title: Text(
-          _page[_selectPageIndex]['title'],
+          _page[TabsScreen.routeIndex]['title'],
           style: StyleTitle,
         ),
 //        leading: Icon(Icons.menu,),
@@ -47,25 +50,26 @@ class _TabsScreenState extends State<TabsScreen> {
         width: MediaQuery.of(context).size.width,
         color: purpleColor,
 //        color: Theme.of(context).primaryColor.withOpacity(0),
-        child: _page[_selectPageIndex]['page'],
+        child: _page[TabsScreen.routeIndex]['page'],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: purpleColor,
-        selectedItemColor: Theme.of(context).colorScheme.primary,
-        unselectedItemColor: KTextColor.shade300,
-        currentIndex: _selectPageIndex,
-        onTap: _selectPage,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.category,size: 30),
-            label: 'المنهج',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.star,size: 30),
-            label: 'المراجعة',
-          ),
-        ],
-      ),
+//      bottomNavigationBar: BottomNavigationBar(
+//        selectedFontSize: 20,
+//        backgroundColor: purpleColor,
+//        selectedItemColor: Theme.of(context).colorScheme.primary,
+//        unselectedItemColor: KTextColor.shade300,
+//        currentIndex: TabsScreen.routeIndex,
+//        onTap: _selectPage,
+//        items: [
+//          BottomNavigationBarItem(
+//            icon: Icon(Icons.local_library, size: 25),
+//            label: 'المنهج',
+//          ),
+//          BottomNavigationBarItem(
+//            icon: Icon(Icons.description, size: 25),
+//            label: 'المراجعه',
+//          ),
+//        ],
+//      ),
     );
   }
 }
